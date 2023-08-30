@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  --bg-color-body: #E5E4E1;
+  --bg-color-output: #EEEEEE;
+  --bg-text-output: #36362C;
+  --bg-color-rows: #979797;
+  --bg-color-item: #E5E4E1;
+  --text-color-item: #36362C;
+  --shadow-color-item: -1px 3px 5px 0px rgb(100, 100, 100);
+  --bg-color-del-rest: #378187;
+  --bg-color-equal: #C85402;
+}
+
+body[data-theme=dark] {
+  --bg-color-body: #434A59;
+  --bg-color-output: #181F33;
+  --bg-text-output: $color-white;
+  --bg-color-rows: #242D44;
+  --bg-color-item: #EAE3DC;
+  --text-color-item: #434A59;
+  --shadow-color-item: -1px 3px 5px 0px rgb(40, 69, 130, 1);
+  --bg-color-del-rest: #647198;
+  --bg-color-equal: #D03F2F;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background-color: var(--bg-color-body);
+}
+
+.calculator {
+  min-width: 390px;
+  width: 440px;
+  background-color: var(--bg-color-body);
+}
+.calculator .toggle-switch {
+  display: flex;
+  justify-content: end;
+  padding: 0 20px 10px 0;
+}
+.calculator .toggle-switch input[type=checkbox] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+.calculator .toggle-switch label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 50px;
+  height: 25px;
+  background: var(--bg-color-rows);
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+.calculator .toggle-switch label::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+.calculator .toggle-switch label:active:after {
+  width: 42px;
+}
+.calculator .toggle-switch input:checked + label {
+  background: var(--bg-color-output);
+}
+.calculator .toggle-switch input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+.calculator .output {
+  background-color: var(--bg-color-output);
+  margin-bottom: 40px;
+  border-radius: 20px;
+  min-height: 150px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 0 20px 20px 0;
+  color: var(--bg-text-output);
+  font-weight: bold;
+  font-size: 30px;
+  flex-direction: column;
+}
+.calculator .rows {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color-rows);
+  border-radius: 10px;
+  padding: 20px 0;
+}
+.calculator .rows .row {
+  display: flex;
+  justify-content: space-around;
+  flex: 1;
+  margin-bottom: 20px;
+}
+.calculator .rows .row .row__item {
+  background: var(--bg-color-item);
+  width: 100px;
+  border: solid var(--bg-color-item);
+  border-radius: 10px;
+  padding: 20px 0;
+  color: var(--text-color-item);
+  font-weight: bold;
+  font-size: 14px;
+}
+.calculator .rows .row .row__item:hover {
+  cursor: pointer;
+  box-shadow: var(--shadow-color-item);
+}
+.calculator .rows .row .row__item--rest, .calculator .rows .row .row__item--del {
+  background-color: var(--bg-color-del-rest);
+  border: solid var(--bg-color-del-rest);
+  color: #fff;
+}
+.calculator .rows .row .row__item--rest {
+  flex: 3;
+  margin: 0 15px 0 10px;
+}
+.calculator .rows .row .row__item--equal {
+  background-color: var(--bg-color-equal);
+  border: solid var(--bg-color-equal);
+  color: #fff;
+  flex: 1;
+  margin-right: 10px;
+}
+
+/*# sourceMappingURL=styles.css.map */

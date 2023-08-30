@@ -1,0 +1,176 @@
+// Import Roboto font from Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+// Variable Definitions
+$font-family-default: 'Roboto', sans-serif;
+$color-white: #fff;
+
+// Global Settings
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    font-family: $font-family-default;
+}
+
+
+//Light theme
+:root {
+    --bg-color-body: #E5E4E1;
+    --bg-color-output: #EEEEEE;
+    --bg-text-output: #36362C;
+    --bg-color-rows: #979797;
+    --bg-color-item: #E5E4E1;
+    --text-color-item: #36362C;
+    --shadow-color-item: -1px 3px 5px 0px rgb(100, 100, 100);
+    --bg-color-del-rest: #378187;
+    --bg-color-equal: #C85402;
+
+}
+
+// Dark Theme
+body[data-theme="dark"] {
+    --bg-color-body: #434A59;
+    --bg-color-output: #181F33;
+    --bg-text-output: $color-white;
+    --bg-color-rows: #242D44;
+    --bg-color-item: #EAE3DC;
+    --text-color-item: #434A59;
+    --shadow-color-item: -1px 3px 5px 0px rgb(40, 69, 130, 1);
+    --bg-color-del-rest: #647198;
+    --bg-color-equal: #D03F2F;
+}
+
+// General Styles
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    display: grid;
+    place-items: center;
+    background-color: var(--bg-color-body);
+}
+
+// Specific Styles for Calculator Component
+.calculator {
+    min-width: 390px;
+    width: 440px;
+    background-color: var(--bg-color-body);
+
+    .toggle-switch {
+        display: flex;
+        justify-content: end;
+        padding: 0 20px 10px 0;
+
+        input[type=checkbox] {
+            height: 0;
+            width: 0;
+            visibility: hidden;
+        }
+
+        label {
+            cursor: pointer;
+            text-indent: -9999px;
+            width: 50px;
+            height: 25px;
+            background: var(--bg-color-rows);
+            display: block;
+            border-radius: 100px;
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 3px;
+                left: 5px;
+                width: 18px;
+                height: 18px;
+                background: $color-white;
+                border-radius: 90px;
+                transition: 0.3s;
+            }
+        }
+
+        label:active:after {
+            width: 42px;
+        }
+
+        input:checked+label {
+            background: var(--bg-color-output);
+        }
+
+        input:checked+label:after {
+            left: calc(100% - 5px);
+            transform: translateX(-100%);
+        }
+    }
+
+    .output {
+        background-color: var(--bg-color-output);
+        margin-bottom: 40px;
+        border-radius: 20px;
+        min-height: 150px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding: 0 20px 20px 0;
+        color: var(--bg-text-output);
+        font-weight: bold;
+        font-size: 30px;
+        flex-direction: column;
+    }
+
+    .rows {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--bg-color-rows);
+        border-radius: 10px;
+        padding: 20px 0;
+
+        .row {
+            display: flex;
+            justify-content: space-around;
+            flex: 1;
+            margin-bottom: 20px;
+
+            .row__item {
+                background: var(--bg-color-item);
+                width: 100px;
+                border: solid var(--bg-color-item);
+                border-radius: 10px;
+                padding: 20px 0;
+                color: var(--text-color-item);
+                font-weight: bold;
+                font-size: 14px;
+
+                &:hover {
+                    cursor: pointer;
+                    box-shadow: var(--shadow-color-item)
+                }
+
+                &--rest,
+                &--del {
+                    background-color: var(--bg-color-del-rest);
+                    border: solid var(--bg-color-del-rest);
+                    color: $color-white;
+                }
+
+                &--rest {
+                    flex: 3;
+                    margin: 0 15px 0 10px;
+                }
+
+                &--equal {
+                    background-color: var(--bg-color-equal);
+                    border: solid var(--bg-color-equal);
+                    color: $color-white;
+                    flex: 1;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}

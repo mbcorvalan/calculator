@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="src/app.js" defer></script>
+    <link rel="stylesheet" href="src/styles.css">
+</head>
+
+<body>
+
+    <div class="calculator">
+        <div class="toggle-switch"> <input type="checkbox" name=checkbox che id="switch" /><label
+                for="switch">Toggle</label></div>
+        <div class="output">
+            <div data-previous-operand class="previous-operand"></div>
+            <div data-current-operand class="current-operand"></div>
+        </div>
+        <div class="rows">
+            <div class="row">
+                <button data-number class="row__item row__item--number">7</button>
+                <button data-number class="row__item row__item--number">8</button>
+                <button data-number class="row__item row__item--number">9</button>
+                <button data-delete class="row__item row__item--del">DEL</button>
+
+            </div>
+            <div class="row">
+                <button data-number class="row__item row__item">4</button>
+                <button data-number class="row__item row__item--number">5</button>
+                <button data-number class="row__item row__item--number">6</button>
+                <button data-operation class="row__item row__item--operation">+</button>
+            </div>
+            <div class="row">
+                <button data-number class="row__item row__item--number">1</button>
+                <button data-number class="row__item row__item--number">2</button>
+                <button data-number class="row__item row__item--number">3</button>
+                <button data-operation class="row__item row__item--operation">-</button>
+            </div>
+            <div class="row">
+                <button data-number class="row__item">.</button>
+                <button data-number class="row__item row__item--number">0</button>
+                <button data-number class="row__item row__item--operation">÷</button>
+                <button data-operation class="row__item row__item--operation">*</button>
+            </div>
+            <div class="row">
+                <button data-all-clear class="row__item row__item--rest">REST</button>
+                <button data-equal class="row__item row__item--equal">=</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
