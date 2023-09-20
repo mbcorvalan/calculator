@@ -35,4 +35,9 @@ This repository contains the code for a basic calculator. One of the coolest fea
     ```
     This command installs all the dependencies required for the project.
 
+## Test Live 🌐
+You can also test the app live at: [https://calculator-corvalan.netlify.app/](https://calculator-corvalan.netlify.app/)
+
+---
+
 And that's it! You should now be able to run the project locally! 🎉
